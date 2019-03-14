@@ -6,6 +6,81 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: linear-gradient(180deg, #CA94FF 0%, rgba(70, 6, 134, 0.81) 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+
+.container {
+  background: rgba(255, 255, 255, 0.67);
+  border-radius: 8px;
+  padding: 25px 50px 13px 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 650px;
+  min-height: 300px;
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+  font-family: Roboto, sans-serif;
+  font-size: 24px;
+  color: #000000;
+  text-align: left;
+}
+.list-item {
+  border-bottom: 1px solid #000;
+  border-bottom-width: 60px;
+  padding-top: 9px;
+  padding-bottom: 19px;
+  text-decoration: none;
+  color: #000;
+}
+
+._completed {
+  color: rgba(0, 0, 0, 0.6);
+  text-decoration: underline;
+}
+.input-wrapp {
+  margin-top: auto;
+  margin-bottom: 14px;
+}
+.input {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #000;
+  padding-left: 0;
+  font-size: 18px;
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+}
+.buttons {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+}
+.btn {
+  width: 133px;
+  height: 40px;
+  background: #FFFFFF;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.25);
+  border-radius: 8px;
+  font-size: 16px;
+  color: #000000;
+  text-align: center;
+  line-height: 40px;
+  outline: none;
+  border: none;
+}
+
+._yellow {
+  background: #FFE482;
 }
 
 code {
