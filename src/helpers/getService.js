@@ -1,4 +1,4 @@
-export default class GetService {
+ class GetService {
     constructor(props) {
         this._apiBase = "http://localhost:3001";
     }
@@ -50,3 +50,5 @@ export default class GetService {
     }
 
 }
+
+ export default new GetService();

@@ -10,10 +10,8 @@ import GetService from "./helpers/getService";
 
 class App extends Component {
 
-    getServ = new GetService();
-
   componentDidMount() {
-      this.getServ.getAllItems('items').then(data => {
+      GetService.getAllItems('items').then(data => {
           console.log(data);
           this.props.getItemsAction(data);
       })

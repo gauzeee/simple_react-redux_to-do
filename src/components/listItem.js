@@ -1,10 +1,16 @@
 import React from "react";
 import { connect } from "react-redux";
 import {changeCompleted} from "../actions";
+import GetService from '../helpers/getService';
 
 class ListItem extends React.Component {
 
   completed = e => {
+    GetService.patchItem({
+      text: this.props.text,
+      id: this.props.id,
+      completed: !this.props.completed
+    });
     this.props.changeCompletedAction(this.props.id);
   };
 

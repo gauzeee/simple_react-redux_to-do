@@ -1,14 +1,19 @@
 {
   "items": [
     {
-      "text": "12321",
-      "completed": false,
-      "id": "KcKsIm8_"
+      "text": "Вынести асинхронные запросы из Редьюсера",
+      "id": "ccfkVlMM",
+      "completed": true
     },
     {
-      "text": "213123",
-      "completed": false,
-      "id": "PWEQKlRI"
+      "text": "Изучить правильное взаимодействие асинхронщины и Redux",
+      "id": "MYRUlV9N",
+      "completed": false
+    },
+    {
+      "text": "Сделать красиво",
+      "id": "Y1KxvNIj",
+      "completed": false
     }
   ]
 }

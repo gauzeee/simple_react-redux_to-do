@@ -8,13 +8,9 @@ const itemsReducer = (state={
         case "INPUT_UPDATED":
             return {items: [...state.items], inputVal: action.payload};
         case "ADD_ITEM":
-            const addedState = {items: [...state.items, {text: action.payload.text, completed: false, id: action.payload.id}], inputVal: ''};
-            return addedState;
+            return  {items: [...state.items, {text: action.payload.text, completed: false, id: action.payload.id}], inputVal: ''};
         case "HIDE_ITEMS":
-            const hidedState = {items: state.items.filter( item => {
-                    if(item && !item.completed) return item;
-                }), inputVal: state.inputVal};
-            return hidedState;
+            return {items: action.payload, inputVal: state.inputVal};
         case "CHANGE_COMPLETED":
             const newItemsArray = state.items.map(item => {
                 if(item) {
