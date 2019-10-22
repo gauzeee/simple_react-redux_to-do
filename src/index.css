@@ -34,17 +34,15 @@ body {
   text-align: left;
 }
 .list-item {
-  border-bottom: 1px solid #000;
-  border-bottom-width: 60px;
-  padding-top: 9px;
-  padding-bottom: 19px;
+  padding-top: 4px;
+  padding-bottom: 4px;
   text-decoration: none;
   color: #000;
 }
 
 ._completed {
   color: rgba(0, 0, 0, 0.6);
-  text-decoration: underline;
+  text-decoration: line-through;
 }
 .input-wrapp {
   margin-top: auto;

@@ -1,23 +1,54 @@
-import React, {Component} from 'react';
-import {connect} from "react-redux";
-import * as actions from '../actions';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import {addItem, hideItems} from "../actions";
+import shortid from 'shortid';
+
 
 class Buttons extends Component {
-    render() {
-        const {addItem, hideItems} = this.props;
-        return (
-            <div className='buttons'>
-                <button onClick={hideItems} className='btn _yellow'>Hide completed</button>
-                <button onClick={addItem} className='btn'>Add new</button>
-            </div>
-        );
+    addItem = () => {
+      const text = this.props.itemsReducer.inputVal;
+      this.props.addItemAction({text, id: shortid.generate()});
+    };
+
+    hideCompleted = () => {
+        this.props.hideCompletedAction();
     }
+
+    componentDidMount() {
+        document.onkeyup = (e) => {
+            if (e.key === 'Enter') {
+                this.addItem();
+            }
+                }
+    }
+
+    render() {
+    return (
+      <div className="buttons">
+        <button onClick={this.hideCompleted} className="btn _yellow">
+          Hide completed
+        </button>
+        <button onClick={this.addItem} className="btn">
+          Add new
+        </button>
+      </div>
+    );
+  }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
+  return state
+};
+
+const mapDispatchToProps = dispatch => {
     return {
-         state
+        addItemAction: text => dispatch(addItem(text)),
+        hideCompletedAction: () => dispatch(hideItems())
     }
 };
 
-export default connect(mapStateToProps, actions)(Buttons);
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Buttons);
