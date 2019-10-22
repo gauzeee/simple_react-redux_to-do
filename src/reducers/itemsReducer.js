@@ -1,7 +1,3 @@
-import GetService from "../helpers/getService";
-
-const postServ = new GetService();
-
 const itemsReducer = (state={
     items: [],
     inputVal: ''
@@ -13,7 +9,6 @@ const itemsReducer = (state={
             return {items: [...state.items], inputVal: action.payload};
         case "ADD_ITEM":
             const addedState = {items: [...state.items, {text: action.payload.text, completed: false, id: action.payload.id}], inputVal: ''};
-            postServ.postItems(addedState.items);
             return addedState;
         case "HIDE_ITEMS":
             const hidedState = {items: state.items.filter( item => {

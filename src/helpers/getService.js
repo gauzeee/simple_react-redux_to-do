@@ -1,6 +1,6 @@
 export default class GetService {
     constructor(props) {
-        this._apiBase = "http://localhost:3000";
+        this._apiBase = "http://localhost:3001";
     }
 
     async getResource(url) {
@@ -21,18 +21,31 @@ export default class GetService {
         return something;
     };
 
-    postItems = async items => {
-        let stingy = '';
-            items.forEach(item => {
-                stingy = stingy + `{"text": "${item.text}", "id": "${item.id}", "complete": "${item.complete}"}` + ',';
+    postItem = async item => {
+            await fetch(`${this._apiBase}/items`, {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(item)
             })
-         await fetch(`${this._apiBase}/items/`, {
-            method: 'POST',
+    }
+
+    patchItem = async item => {
+        await fetch(`${this._apiBase}/items/${item.id}`, {
+            method: 'PATCH',
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(stingy)
+            body: JSON.stringify(item)
+        })
+    }
+
+    removeItem = async id => {
+        await fetch(`${this._apiBase}/items/${id}`, {
+            method: 'DELETE'
         })
     }
 
