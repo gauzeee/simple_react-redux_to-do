@@ -1,17 +1,15 @@
 import React from "react";
 import { connect } from "react-redux";
-import {changeCompleted} from "../actions";
-import GetService from '../helpers/getService';
+import { patchItem} from "../actions";
 
 class ListItem extends React.Component {
-
   completed = e => {
-    GetService.patchItem({
+    console.log(this.props.completed)
+    this.props.patchItemAction({
       text: this.props.text,
       id: this.props.id,
       completed: !this.props.completed
     });
-    this.props.changeCompletedAction(this.props.id);
   };
 
   render() {
@@ -26,7 +24,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
    return {
-     changeCompletedAction: (id) => dispatch(changeCompleted(id))
+     patchItemAction: (item) => dispatch(patchItem(item))
    }
 }
 

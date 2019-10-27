@@ -11,12 +11,7 @@ import GetService from "./helpers/getService";
 class App extends Component {
 
   componentDidMount() {
-      GetService.getAllItems('items').then(data => {
-          console.log(data);
-          this.props.getItemsAction(data);
-      })
-
-
+      this.props.getItemsAction();
   }
 
     render() {
@@ -32,7 +27,7 @@ class App extends Component {
 
 const mapDispatchToProps = dispatch => {
     return {
-        getItemsAction: (items) => dispatch(getItems(items))
+        getItemsAction: () => dispatch(getItems())
     }
 }
 

@@ -6,7 +6,7 @@ class List extends React.Component {
   renderItems(arr) {
     if (arr && arr.length > 0) {
       return arr.map((item, index) => {
-        return <ListItem id={item ? item.id : null} key={index} text={item ? item.text : ''} className={item && item.completed ? 'list-item _completed' : 'list-item'} />;
+        if(item) return <ListItem id={item.id} key={index} text={item.text} completed={item.completed} className={item.completed ? 'list-item _completed' : 'list-item'} />;
       })
     } else {
       return <span>No todos!</span>;
